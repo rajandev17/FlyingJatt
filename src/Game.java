@@ -15,26 +15,26 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Game extends JPanel {
 	
-	private JFrame gameFrame;
-	private JLabel gameOverLabel,scoreBoard;
-	private static final int WINDOW_WIDTH = 600;
-	private static int SCORE = 0;
-	private static final int WINDOW_HEIGHT = 322;
-	private String imagePath = "src/res/";
-    private final static int jattX = 80;
-    private static int jattY = 230;
-    private final static int JATT_MIN_HEIGHT = 230;
-    private final static int JATT_MAX_HEIGHT = 160;
-    private static int cubeY = 250;
-    private static int cubeHeight = 27;
-    private static int cubeWidth = 13;
-    private static int cubeX = 0;
-    private static int cube2X = 0;
-    private static int cube3X = 0;
-    private static int cube4X = 0;
-    Image jatt;
-    private static int CUBE_VELOCITY = 5;
-    private static boolean out = false;
+private JFrame gameFrame;
+private JLabel gameOverLabel,scoreBoard;
+private static final int WINDOW_WIDTH = 600;
+private static int SCORE = 0;
+private static final int WINDOW_HEIGHT = 322;
+private String imagePath = "src/res/";
+private final static int jattX = 80;
+private static int jattY = 230;
+private final static int JATT_MIN_HEIGHT = 230;
+private final static int JATT_MAX_HEIGHT = 160;
+private static int cubeY = 250;
+private static int cubeHeight = 27;
+private static int cubeWidth = 13;
+private static int cubeX = 0;
+private static int cube2X = 0;
+private static int cube3X = 0;
+private static int cube4X = 0;
+Image jatt;
+private static int CUBE_VELOCITY = 5;
+private static boolean out = false;
     
     private void initCubePositions(){
     	cubeX = WINDOW_WIDTH - cubeWidth;
@@ -75,27 +75,27 @@ public class Game extends JPanel {
     
     private void flyJatt(){
     	new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					while(jattY >= JATT_MAX_HEIGHT){
-						jattY -= 2;
-						Game.this.repaint();
-						Thread.sleep(9);
-					}
-					while(jattY <= JATT_MIN_HEIGHT){
-						jattY += 2;
-						Game.this.repaint();
-						Thread.sleep(9);
-					}
-					SCORE += 5;
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+		@Override
+		public void run() {
+			try {
+				while(jattY >= JATT_MAX_HEIGHT){
+					jattY -= 2;
+					Game.this.repaint();
+					Thread.sleep(9);
 				}
+				while(jattY <= JATT_MIN_HEIGHT){
+					jattY += 2;
+					Game.this.repaint();
+					Thread.sleep(9);
+				}
+				SCORE += 5;
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
+		}
 		}).start();
-    }
+     }
     
     @Override
     public void paint(Graphics g) {
@@ -189,22 +189,22 @@ public class Game extends JPanel {
     public static void main(String[] args) {
     	final Game game = new Game();
     	game.addKeyListener(new KeyListener() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				if(!out){
-		            game.flyJatt();
-				}
+		@Override
+		public void keyTyped(KeyEvent e) {
+			if(!out){
+	            game.flyJatt();
 			}
-			
-			@Override
-			public void keyReleased(KeyEvent e) {
-				// TODO Auto-generated method stub
-			}
-			
-			@Override
-			public void keyPressed(KeyEvent e) {
-			}
-		});
+		}
+		
+		@Override
+		public void keyReleased(KeyEvent e) {
+			// TODO Auto-generated method stub
+		}
+		
+		@Override
+		public void keyPressed(KeyEvent e) {
+		}
+	});
     	game.initCubePositions();
         while (!out) {
         	game.moveCubes();
