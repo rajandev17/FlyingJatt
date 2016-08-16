@@ -45,31 +45,31 @@ public class Game extends JPanel {
     }
     
     private void moveCubes() {
-			cubeX -= 1;
-	        cube2X -= 1;
-	        cube3X -= 1;
-	        cube4X -= 1;
-	        Random cubeInterval = new Random();
-	        if(cube2X < 5){
-	        	cube2X = cubeX + 100 + cubeInterval.nextInt(100);
-	        }
-	        if(cubeX < 5){
-	        	cubeX = WINDOW_WIDTH - cubeWidth;
-	        }
-	        if(cube3X < 5){
-	        	cube3X = cube2X + 100 + cubeInterval.nextInt(100);
-	        }
-	        
-	        if(cube4X < 5){
-	        	cube4X = cube3X + 100 + cubeInterval.nextInt(100);
-	        }
-	        Game.this.repaint();
-	        try {
-				Thread.sleep(CUBE_VELOCITY);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		cubeX -= 1;
+        cube2X -= 1;
+        cube3X -= 1;
+        cube4X -= 1;
+        Random cubeInterval = new Random();
+        if(cube2X < 5){
+        	cube2X = cubeX + 100 + cubeInterval.nextInt(100);
+        }
+        if(cubeX < 5){
+        	cubeX = WINDOW_WIDTH - cubeWidth;
+        }
+        if(cube3X < 5){
+        	cube3X = cube2X + 100 + cubeInterval.nextInt(100);
+        }
+        
+        if(cube4X < 5){
+        	cube4X = cube3X + 100 + cubeInterval.nextInt(100);
+        }
+        Game.this.repaint();
+        try {
+			Thread.sleep(CUBE_VELOCITY);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
     
@@ -83,7 +83,6 @@ public class Game extends JPanel {
 						Game.this.repaint();
 						Thread.sleep(9);
 					}
-					
 					while(jattY <= JATT_MIN_HEIGHT){
 						jattY += 2;
 						Game.this.repaint();
@@ -190,7 +189,6 @@ public class Game extends JPanel {
     public static void main(String[] args) {
     	final Game game = new Game();
     	game.addKeyListener(new KeyListener() {
-			
 			@Override
 			public void keyTyped(KeyEvent e) {
 				if(!out){
