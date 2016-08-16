@@ -15,26 +15,26 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Game extends JPanel {
 	
-private JFrame gameFrame;
-private JLabel gameOverLabel,scoreBoard;
-private static final int WINDOW_WIDTH = 600;
-private static int SCORE = 0;
-private static final int WINDOW_HEIGHT = 322;
-private String imagePath = "src/res/";
-private final static int jattX = 80;
-private static int jattY = 230;
-private final static int JATT_MIN_HEIGHT = 230;
-private final static int JATT_MAX_HEIGHT = 160;
-private static int cubeY = 250;
-private static int cubeHeight = 27;
-private static int cubeWidth = 13;
-private static int cubeX = 0;
-private static int cube2X = 0;
-private static int cube3X = 0;
-private static int cube4X = 0;
-Image jatt;
-private static int CUBE_VELOCITY = 5;
-private static boolean out = false;
+	private JFrame gameFrame;
+	private JLabel gameOverLabel,scoreBoard;
+	private static final int WINDOW_WIDTH = 600;
+	private static int SCORE = 0;
+	private static final int WINDOW_HEIGHT = 322;
+	private String imagePath = "src/res/";
+	private final static int jattX = 80;
+	private static int jattY = 230;
+	private final static int JATT_MIN_HEIGHT = 230;
+	private final static int JATT_MAX_HEIGHT = 160;
+	private static int cubeY = 250;
+	private static int cubeHeight = 27;
+	private static int cubeWidth = 13;
+	private static int cubeX = 0;
+	private static int cube2X = 0;
+	private static int cube3X = 0;
+	private static int cube4X = 0;
+	Image jatt;
+	private static int CUBE_VELOCITY = 5;
+	private static boolean out = false;
     
     private void initCubePositions(){
     	cubeX = WINDOW_WIDTH - cubeWidth;
